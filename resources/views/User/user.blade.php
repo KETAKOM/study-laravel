@@ -11,8 +11,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1>テストページ</h1>
-        
+        <h1>ユーザー一覧</h1>
+
         @foreach ($users as $user)
             <p>{{ $user->name }}</p><br>
         @endforeach

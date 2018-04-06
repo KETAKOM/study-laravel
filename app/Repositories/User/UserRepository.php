@@ -17,13 +17,64 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
-     * 名前で1レコードを取得
+     * IDで1レコードを取得
      *
-     * @var $name
+     * @var $id
      * @return object
      */
-    public function getFirstRecordByName($name)
+    public function getUserFirstById($id)
     {
-        return $this->user->get();
+        $user = $this->user
+            ->where('id', $id)
+            ->first();
+    }
+    
+    /**
+     * User一覧を取得
+     *
+     * @var string $name
+     * @return object
+     */
+    public function getUserList()
+    {
+        return $this->user->all();
+    }
+    
+    /**
+     * User情報登録
+     *
+     * @var string $name
+     * @return object
+     */
+    public function CreateUser($name)
+    {
+        $user = new User;
+        $user->name = $name;
+        $user->save();
+    }
+    
+    /**
+     * User情報編集
+     *
+     * @var string $name
+     * @return object
+     */
+    public function EditUser($id, $name)
+    {
+        $user = $this->user->find($id);
+        $user->name = $name;
+        $user->save();
+    }
+    
+    /**
+     * User情報削除
+     *
+     * @var string $name
+     * @return object
+     */
+    public function DeleteUser($id)
+    {
+        $user = $this->user->find($id);
+        $user->delete();
     }
 }
