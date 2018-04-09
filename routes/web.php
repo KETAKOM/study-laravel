@@ -26,3 +26,4 @@ Route::get('/api/post/getSelf', 'PostController@getSelfPostList');
 Route::get('/api/post/create', 'PostController@createapi');
 Route::get('/api/post/edit', 'PostController@editapi');
 Route::get('/api/post/delete', 'PostController@deleteapi');
+Route::post('/api/post/uploadImage', 'PostController@uploadImage');
